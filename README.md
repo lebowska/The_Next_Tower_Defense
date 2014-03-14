@@ -33,3 +33,6 @@ Modalità Turn Free
 Modalità Lock Ability
 	Si può lockare un'abilità dalle torrette di danno (anche da torrette risorse, tipo search automatico?) ed al turno successivo non sarà necessario assegnare azioni a quella torretta/tipi di torrette(macro)
 	
+	
+\Assets\The_Next_Tower_Defense
+	path contenente gli asset utilizzati dal gioco

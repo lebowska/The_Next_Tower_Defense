@@ -43,6 +43,21 @@ function OnTriggerEnter(other : Collider) {
 		}
 		else {
 			antagonistaPrescelto = null;
+			OnLostTrack ();
+		}
+	}
+}
+
+function OnTriggerStay(other : Collider) {
+	if (other.gameObject.tag == "CarneFresca" && behaviourOnSpotted.enabled == false) {	
+		if(CercaAntagonistaPrescelto()){
+			antagonistaPrescelto = CercaAntagonistaPrescelto().transform;
+			if (CanSeePlayer()){
+				OnSpotted ();
+			}
+		}
+		else {
+			antagonistaPrescelto = null;
 		}
 	}
 }
@@ -91,7 +106,7 @@ function CercaAntagonistaPrescelto() : GameObject {
 
 		var distanzaDaFineDelMondo = Vector3.Distance(antagonista.transform.position, finedelMondo.position);		
 		var distanzaDaTorretta = Vector3.Distance(antagonista.transform.position, torretta.position);		
-		//Debug.Log ("Distanza da fine: " + distanzaDaFineDelMondo + ", distanza da torretta: " + distanzaDaTorretta);
+		Debug.Log ("Distanza da fine: " + distanzaDaFineDelMondo + ", distanza da torretta: " + distanzaDaTorretta);
 
 		if (distanzaDaTorretta < areaTorretta){	
 			if (distanzaDaFineDelMondo < distanzaMinore) { 
@@ -101,7 +116,7 @@ function CercaAntagonistaPrescelto() : GameObject {
 			} 
 		}	
   	} 
-	//Debug.Log ("Minore da fine: " + distanzaMinore + ", distanza da torretta: " + distanzaDaTorrettaMinore);
+	Debug.Log ("Minore da fine: " + distanzaMinore + ", distanza da torretta: " + distanzaDaTorrettaMinore);
     return antagonistaPiuVicino;
 }
 

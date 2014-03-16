@@ -4,7 +4,6 @@
 public var motor : MovementMotor;
 public var head : Transform;
 
-//non ha effetto, messa fissa nel codice
 public var areaTorretta : float = 7.0;
 public var weaponBehaviours : MonoBehaviour[];
 public var fireFrequency : float = 2;

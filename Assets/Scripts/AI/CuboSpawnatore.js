@@ -94,7 +94,8 @@ function Ondata () {
 //		var pos : Vector3 = contact.point;
 
 	//Spawner.Spawn (patrolRoute, vasodiPandora.position, transform.rotation);
-	yield WaitForSeconds(2.0);	
+	
+	//yield WaitForSeconds(2.0);	
 	
 	for (var ondata1 = 0; ondata1 < numero_Ondata1; ondata1++){			
 		for (var x = 0; x < antSfigati_Ondata1; x++){		

@@ -34,19 +34,33 @@ function Update () {
 
 function OnTriggerEnter(other : Collider) {
 //	if (other.gameObject.tag == "CarneFresca" && !sparando ) {
-	if (other.gameObject.tag == "CarneFresca") {
-		antagonistaPrescelto = CercaAntagonistaPrescelto().transform;
-		if (CanSeePlayer ()){
-			OnSpotted ();
+	if (other.gameObject.tag == "CarneFresca") {	
+		if(CercaAntagonistaPrescelto()){
+			antagonistaPrescelto = CercaAntagonistaPrescelto().transform;
+			if (CanSeePlayer()){
+				OnSpotted ();
+			}
+		}
+		else {
+			antagonistaPrescelto = null;
 		}
 	}
 }
 
+function OnTriggerExit(other : Collider) {
+//	if (other.gameObject.tag == "CarneFresca" && !sparando ) {
+	if (other.gameObject.tag == "CarneFresca") {
+		OnSpotted();
+	} else {
+		OnLostTrack();
+	}
+}
+
 function OnSpotted () {
-	if (!behaviourOnSpotted.enabled) {
-		sparando = true;
+	if (!behaviourOnSpotted.enabled) {		
 		behaviourOnSpotted.enabled = true;
 		behaviourOnLostTrack.enabled = false;
+		sparando = true;
 		
 		if (audio && soundOnSpotted) {
 			audio.clip = soundOnSpotted;
@@ -59,6 +73,7 @@ function OnLostTrack () {
 	if (!behaviourOnLostTrack.enabled) {
 		behaviourOnLostTrack.enabled = true;
 		behaviourOnSpotted.enabled = false;
+		sparando = false;
 	}
 }
 

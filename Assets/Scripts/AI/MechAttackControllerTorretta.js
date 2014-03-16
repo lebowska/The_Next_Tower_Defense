@@ -5,8 +5,7 @@ public var motor : MovementMotor;
 public var head : Transform;
 
 //non ha effetto, messa fissa nel codice
-public var areaTorretta : float;
-
+public var areaTorretta : float = 7.0;
 public var weaponBehaviours : MonoBehaviour[];
 public var fireFrequency : float = 2;
 
@@ -68,7 +67,7 @@ function Update () {
 		motor.facingDirection = direzioneAntagonista;		
 		var distanzaDaTorretta = Vector3.Distance(antagonista.position, character.position);
 		
-		if (distanzaDaTorretta < 8){
+		if (distanzaDaTorretta < areaTorretta){
 			if (Time.time > nextRaycastTime) {
 				nextRaycastTime = Time.time + 1;
 				if (aiTorretta.CanSeePlayer ()) {
@@ -110,11 +109,16 @@ function Update () {
 
 // controlla se l'antagonista più vicino è in range
 function antagonistiInArea(){
-	AITorretta.antagonistaPrescelto = aiTorretta.CercaAntagonistaPrescelto().transform;
-	
-	if(AITorretta.antagonistaPrescelto){
+
+	if(aiTorretta.CercaAntagonistaPrescelto()){
+		AITorretta.antagonistaPrescelto = aiTorretta.CercaAntagonistaPrescelto().transform;
+	}
+	else {
+		AITorretta.antagonistaPrescelto = null;
+	}
+	if(AITorretta.antagonistaPrescelto){		
 		var distanzaDaTorretta = Vector3.Distance(AITorretta.antagonistaPrescelto.position, character.position);
-		if(distanzaDaTorretta < 8){
+		if(distanzaDaTorretta < areaTorretta){
 			antagonistaInArea = true;
 		} else {
 			antagonistaInArea = false;

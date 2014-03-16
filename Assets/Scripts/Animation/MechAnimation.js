@@ -14,7 +14,7 @@ private var lastAnimTime : float = 0;
 function OnEnable () {
 	tr = rigid.transform;
 	animation[idle.name].layer = 0;
-	animation[idle.name].weight = 1;
+	animation[idle.name].weight = 1;	
 	animation[idle.name].enabled = true;
 	
 	animation[walk.name].layer = 1;

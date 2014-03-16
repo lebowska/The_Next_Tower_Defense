@@ -30,9 +30,10 @@ tower defense RPG strategico a turni
 Modalità Turn Free
 	Si possono eseguire tutte le azioni senza turni fino al primo attacco/nemico in vista
 	sbloccabile anche durante la partita se tutte le torrette hanno lock ability attivato (VEDI SOTTO)
+	
 Modalità Lock Ability
 	Si può lockare un'abilità dalle torrette di danno (anche da torrette risorse, tipo search automatico?) ed al turno successivo non sarà necessario assegnare azioni a quella torretta/tipi di torrette(macro)
 	
 	
 \Assets\The_Next_Tower_Defense
-	path contenente gli asset utilizzati dal gioco
+path contenente gli asset utilizzati dal gioco

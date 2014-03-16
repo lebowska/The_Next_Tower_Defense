@@ -36,4 +36,4 @@ Modalità Lock Ability
 	
 	
 \Assets\The_Next_Tower_Defense
-path contenente gli asset utilizzati dal gioco
+	asset utilizzati dal gioco
